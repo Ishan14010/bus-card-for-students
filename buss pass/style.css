@@ -45,11 +45,11 @@ body {
 
 .bus-background-container {
     position: relative;
-    width: 90%;
-    height: 150px;
-    background-color: #333333; /* Changed to dark grey for the road color */
+    width: 80%;
+    height: 130px;
+    background-color: #060606; /* Changed to dark grey for the road color */
     border-radius: 10px;
-    overflow: hidden;
+    overflow:hidden;
     margin: 0 auto 20px;
 }
 
@@ -67,8 +67,8 @@ body {
     bottom: 15px; /* Adjusted to move the bus up even more */
     left: -20%;
     width: 120px;
-    animation: moveBus 10s linear infinite;
-    transform: scaleX(-1);
+    animation: moveBus 8s linear infinite;
+    transform: scaleX(1);
 }
 
 @keyframes moveBus {
@@ -166,15 +166,16 @@ body {
 
 /* Changing the circle for the active item */
 .nav-item.active::before {
-    background-color: #4dc2ff; /* Darker blue circle */
+    background-color: #20f5c3; /* Darker blue circle */
 }
 
 .nav-icon {
     font-size: 22px;
     line-height: 1;
     margin-bottom: 3px;
-    color: #9e9e9e; /* Inactive icon color */
+    color: #c9c6c6; /* Inactive icon color */
     z-index: 1; /* Puts the icon on top */
+    
 }
 
 .nav-item.active .nav-icon {

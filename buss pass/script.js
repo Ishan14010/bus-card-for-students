@@ -7,18 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to update the date and time
     function updateDateTime() {
         const now = new Date();
-        const formattedDate = now.toLocaleDateString('en-US', {
-            weekday: 'short',
-            month: 'short',
-            day: '2-digit',
-            year: 'numeric'
-        });
-        const formattedTime = now.toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        });
+        const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        const dayName = days[now.getDay()];
+        const monthName = months[now.getMonth()];
+        const day = String(now.getDate()).padStart(2, '0');
+        const year = now.getFullYear();
+
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // The hour '0' should be '12'
+
+        const formattedDate = `${dayName} ${monthName} ${day} ${year}`;
+        const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
 
         currentDateTimeElement.innerHTML = `${formattedDate} <br> ${formattedTime}`;
     }
