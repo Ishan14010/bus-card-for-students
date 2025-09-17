@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Bus Pass</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="pass-container">
+        <div class="pass-card">
+            <div class="pass-header">
+                <h2>Adult 10 Ride Card</h2>
+                <h1 id="current-date-time"></h1>
+            </div>
+            
+            <h3 class="transit-name">Barrie Transit</h3>
+
+            <div class="bus-background-container">
+                <img src="images/background image.png" alt="City Background" class="background-image">
+                <img src="images/bus.jpg" alt="Bus" class="bus-image" id="moving-bus">
+            </div>
+            
+            <div class="pass-footer">
+                <button class="expire-button">Expire</button>
+                <p id="expiry-status"></p>
+                <p>User ID: <span id="user-id"></span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navbar-container">
+        <div class="navbar">
+            <div class="nav-item">
+                <i class="fas fa-house nav-icon"></i> 
+                <span class="nav-label">Home</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-square-parking nav-icon"></i> 
+                <span class="nav-label">Parking</span>
+            </div>
+            <div class="nav-item active">
+                <i class="fas fa-bus nav-icon"></i>
+                <span class="nav-label">Transit</span>
+                <div class="active-indicator"></div>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-id-card nav-icon"></i> 
+                <span class="nav-label">Permits</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

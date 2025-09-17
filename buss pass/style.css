@@ -1,0 +1,213 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    padding-bottom: 120px; 
+}
+
+.pass-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.pass-card {
+    background-color: #8c2b53;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    padding: 30px 0;
+}
+
+.pass-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.pass-header h1 {
+    margin: 5px 0 20px;
+    font-size: 2em;
+}
+
+.transit-name {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.bus-background-container {
+    position: relative;
+    width: 90%;
+    height: 150px;
+    background-color: #333333; /* Changed to dark grey for the road color */
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto 20px;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bus-image {
+    position: absolute;
+    bottom: 15px; /* Adjusted to move the bus up even more */
+    left: -20%;
+    width: 120px;
+    animation: moveBus 10s linear infinite;
+    transform: scaleX(-1);
+}
+
+@keyframes moveBus {
+    from {
+        left: -20%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.pass-footer {
+    padding: 0 20px;
+}
+
+.expire-button {
+    background-color: #ff5e5e;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.expire-button:hover {
+    background-color: #ff3c3c;
+}
+
+.pass-footer p {
+    margin: 5px 0;
+}
+
+/* Navigation Bar Styling */
+.navbar-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    z-index: 1000;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0 10px;
+    margin: 0 20px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #9e9e9e;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: relative;
+    padding-top: 5px;
+}
+
+/* Creating the circular background */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 50px;
+    height: 50px;
+    background-color: #d4f2ff; /* Light blue circle */
+    border-radius: 50%;
+    z-index: -1;
+    transition: background-color 0.3s;
+}
+
+.nav-item.active {
+    color: white; /* Active text color */
+}
+
+/* Changing the circle for the active item */
+.nav-item.active::before {
+    background-color: #4dc2ff; /* Darker blue circle */
+}
+
+.nav-icon {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 3px;
+    color: #9e9e9e; /* Inactive icon color */
+    z-index: 1; /* Puts the icon on top */
+}
+
+.nav-item.active .nav-icon {
+    color: white; /* Make the active icon white for better contrast */
+}
+
+.nav-label {
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1; /* Puts the label on top */
+}
+
+.active-indicator {
+    position: absolute;
+    bottom: -10px;
+    width: 25px;
+    height: 3px;
+    background-color: #4dc2ff;
+    border-radius: 2px;
+    display: none;
+}
+
+.nav-item.active .active-indicator {
+    display: block;
+}
+
+/* --- Mobile Optimization for smaller phones (e.g., iPhone SE, Pixel 4a) --- */
+@media (max-width: 400px) {
+    .navbar {
+        margin: 0 10px; /* Reduce horizontal margin for a better fit on small screens */
+    }
+
+    .nav-label {
+        font-size: 11px; /* Slightly smaller font for better fit */
+    }
+}
